@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import HomePage from './pages/Home';
 import Products from './pages/Products';
+import RootLayout from './pages/Root';
 
 // Older version. You need to import createRoutesFromElements and Route from 'react-router-dom'
 // const routeDifinitions = createRoutesFromElements(
@@ -16,9 +17,15 @@ import Products from './pages/Products';
 
 // Object solution, latest version.
 const router = createBrowserRouter([
-  { path: '/', element: <HomePage />},
-  { path: '/products', element: <Products />}
-])
+  { 
+    path: '/', 
+    element: <RootLayout />,
+    children: [
+      { path: '/', element: <HomePage />},
+      { path: '/products', element: <Products />}
+    ]
+  },
+]);
 
 function App() {
   return <RouterProvider router={router}/>;
