@@ -7,6 +7,7 @@ import HomePage from './pages/Home';
 import ProductsPage from './pages/Products';
 import RootLayout from './pages/Root';
 import ErrorPage from './pages/Error';
+import ProductsDetailPage from './pages/ProductDetail'
 
 // Older version. You need to import createRoutesFromElements and Route from 'react-router-dom'
 // const routeDifinitions = createRoutesFromElements(
@@ -24,7 +25,9 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: '/', element: <HomePage />},
-      { path: '/products', element: <ProductsPage />}
+      { path: '/products', element: <ProductsPage />},
+      //Semicolon is to show dynamic
+      { path: '/products/:productId', element: <ProductsDetailPage />}
     ]
   },
 ]);
