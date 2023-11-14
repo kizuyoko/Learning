@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: '', element: <HomePage />},
+      { index: true, element: <HomePage />}, //You do not need to write path: ''
       { path: 'products', element: <ProductsPage />},
       //Semicolon is to show dynamic
       { path: 'products/:productId', element: <ProductsDetailPage />}
