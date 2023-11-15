@@ -14,7 +14,9 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage />}, 
       // loader is a new feacher of React Router. 
-      { path: 'events', element: <EventsRootLayout />, 
+      { 
+        path: 'events', 
+        element: <EventsRootLayout />, 
         children: [
           { 
             index: true, 
