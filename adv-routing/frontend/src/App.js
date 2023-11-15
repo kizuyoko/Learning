@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage />}, 
-      // 'loader' is a new feacher of React Router. IT excutes when you go to event page, not when you just open the app.
+      // 'loader' is a new feacher of React Router. It excutes when you go to event page, not when you just open the app.
       { 
         path: 'events', 
         element: <EventsRootLayout />, 
