@@ -12,7 +12,17 @@ const router = createBrowserRouter([
     path:'/',
     element: <RootLayout />,
     children: [
-      { index: true, element: <HomePage />},
+      // loader is a new feacher of React Router. 
+      { index: true, element: <HomePage />, loader: async() => {
+          const response = await fetch('http://localhost:8080/events');
+
+          if (!response.ok) {
+          } else {
+            const resData = await response.json();
+            return resData.events;
+          }
+        }
+      },
       { path: 'events', element: <EventsRootLayout />, 
         children: [
           { index: true, element: <EventsPage />},
