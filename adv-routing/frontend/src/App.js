@@ -6,12 +6,13 @@ import NewEventPage from "./pages/NewEvent";
 import EditEventPage from "./pages/EditEventPage";
 import RootLayout from "./pages/Root";
 import EventsRootLayout from "./pages/EventsRoot";
-import { loader } from "./pages/Events";
+import ErrorPage from "./pages/Error";
 
 const router = createBrowserRouter([
   {
     path:'/',
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage />}, 
       // 'loader' is a new feacher of React Router. It excutes when you go to event page, not when you just open the app.
