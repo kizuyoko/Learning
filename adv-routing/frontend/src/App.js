@@ -1,6 +1,5 @@
-// 6. Output a list of dummy events to the EventsPage
-//    Every list item should include a link to the respective EventDetailPage
-// 7. Output the ID of the selected event on the EventDetailPage
+// Follow the video 1: index: true to HomePage in App.js
+// Follow the video 2: add 'end' to HomePage link in MainNavigations.js to make only home active  
 // BONUS: Add another (nested) layout route that adds the <EventNavigation> component above all /events... page components
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -10,17 +9,22 @@ import EventDetailPage from "./pages/EventDetail";
 import NewEventPage from "./pages/NewEvent";
 import EditEventPage from "./pages/EditEventPage";
 import RootLayout from "./pages/Root";
+import EventsRootLayout from "./pages/EventsRoot";
 
 const router = createBrowserRouter([
   {
     path:'/',
     element: <RootLayout />,
     children: [
-      { path: '/', element: <HomePage />},
-      { path: '/events', element: <EventsPage />},
-      { path: '/events/:eventId', element: <EventDetailPage />},
-      { path: '/events/new', element: <NewEventPage />},
-      { path: '/events/:eventId/edit', element: <EditEventPage />}
+      { index: true, element: <HomePage />},
+      { path: 'events', element: <EventsRootLayout />, 
+        children: [
+          { index: true, element: <EventsPage />},
+          { path: ':eventId', element: <EventDetailPage />},
+          { path: 'new', element: <NewEventPage />},
+          { path: ':eventId/edit', element: <EditEventPage />}
+        ]
+      }
     ]
   }
 ]);
