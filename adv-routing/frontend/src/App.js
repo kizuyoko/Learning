@@ -1,7 +1,3 @@
-// Follow the video 1: index: true to HomePage in App.js
-// Follow the video 2: add 'end' to HomePage link in MainNavigations.js to make only home active  
-// BONUS: Add another (nested) layout route that adds the <EventNavigation> component above all /events... page components
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/Home";
 import EventsPage from "./pages/Events";
