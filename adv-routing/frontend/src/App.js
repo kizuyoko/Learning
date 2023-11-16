@@ -15,7 +15,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage />}, 
-      // 'loader' is a new feacher of React Router. It excutes when you go to event page, not when you just open the app.
       { 
         path: 'events', 
         element: <EventsRootLayout />, 
@@ -23,6 +22,7 @@ const router = createBrowserRouter([
           { 
             index: true, 
             element: <EventsPage />, 
+            // 'loader' is a new feature of React Router. It excutes when you go to event page, not when you just open the app. No useEffect needed. 'eventsLoader' is in Event.js, named 'loader'. You should not use in higher level like in root.
             loader: eventsLoader,
           },
           { path: ':eventId', element: <EventDetailPage />},
