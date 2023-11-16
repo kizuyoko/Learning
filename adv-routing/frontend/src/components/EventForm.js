@@ -8,7 +8,7 @@ function EventForm({ method, event }) {
     navigate('..');
   }
 
-  // 'Form' is a feature in React Router Dom.
+  // 'Form' is a feature in React Router Dom. You can add action-attribute
   return (
     <Form method='post' className={classes.form}>
       <p>
