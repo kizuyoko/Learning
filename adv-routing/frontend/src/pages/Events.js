@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, json } from 'react-router-dom';
 import EventsList from '../components/EventsList';
 
 function EventsPage() {
@@ -26,9 +26,16 @@ export async function loader() {
     // return { isError: true, message: 'Could not fetch events' };
     
     // Response is JS feature
-    throw new Response(JSON.stringfy({ message: 'Could not fetch events.' }), 
+    // throw new Response(JSON.stringfy({ message: 'Could not fetch events.' }), 
+    //   { status: 500 }
+    // );
+
+    // json is a React Router feature for throw new Response(JSON.stringfy(message, state)), above. You do not need JSON .parse in Error.js.
+    return json(
+      { message: 'Could not fetch events.' },
       { status: 500 }
     );
+
   } else {
     //const resData = await response.json();
     //return resData.events;
