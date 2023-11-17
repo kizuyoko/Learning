@@ -1,25 +1,22 @@
-import { useLoaderData, json } from 'react-router-dom';
+import { useLoaderData, json, defer, Await } from 'react-router-dom';
 import EventsList from '../components/EventsList';
+import { Suspense } from 'react';
 
 function EventsPage() {
-  // Connects to App.js loader, a feature of React Router. Totally OK to move to EveniList but not higher place like root.
-  const data = useLoaderData();
-
-  if (data.isError) {
-    return <p>{data.message}</p>
-  }
-
-  const events = data.events;
+  const { events } = useLoaderData();
 
   return (
-    <EventsList events={events} />
+    <Suspense fallback={<p style={{ textAlign: 'center '}}>Loading...</p>}>
+      <Await resolve={events}>
+        {(loadedEvents) => <EventsList events={loadedEvents} />}
+      </Await>
+    </Suspense>
   );
 }
 
 export default EventsPage;
 
-// This connects to loader (new feature of React Router) in App.js.
-export async function loader() {
+async function loadEvents() {
   const response = await fetch('http://localhost:8080/events');
 
   if (!response.ok) {
@@ -40,6 +37,14 @@ export async function loader() {
     //const resData = await response.json();
     //return resData.events;
     //const res = new Response('any data', {status: 201});
-    return response;
+    const resData = await response.json();
+    return resData.events;
   }
+} 
+
+// This connects to loader (new feature of React Router) in App.js.
+export function loader() {
+  return defer({
+   events: loadEvents() 
+  })
 }
