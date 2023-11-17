@@ -1,0 +1,1 @@
+You need to run both of frontend and backend with npm start.
