@@ -2,6 +2,7 @@ import { Form, Link, useSearchParams } from 'react-router-dom';
 import classes from './AuthForm.module.css';
 
 function AuthForm() {
+  // The useSearchParams hook is used to read and modify the query string in the URL for the current location. Useally [searchParams, setSeacrhParams], just like useState.
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get('mode') === 'login';
 
