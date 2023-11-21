@@ -8,6 +8,7 @@ export default function NewEventsSection() {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['events'],
     queryFn: fetchEvents,
+    // The duration until a query transitions from fresh to stale. Default is 0.
     staleTime: 5000,
     //gcTime: 1000
   });
