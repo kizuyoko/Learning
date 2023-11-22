@@ -7,8 +7,8 @@ import { fetchEvents } from '../../util/http.js'
 export default function NewEventsSection() {
   // Tanstack setting. useQuery id to get data 
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ['events'],
-    queryFn: fetchEvents,
+    queryKey: ['events', { max:3 }],
+    queryFn: ({ signal, queryKey }) => fetchEvents({ signal, ...queryKey[1] }),
     // The duration until a query transitions from fresh to stale. Default is 0.
     staleTime: 5000,
     //gcTime: 1000
