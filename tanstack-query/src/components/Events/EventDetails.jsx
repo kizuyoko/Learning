@@ -20,7 +20,9 @@ export default function EventDetails() {
     mutationFn: deleteEvent,
     onSuccess: () => {
       queryClient.invalidateQueries({ 
-        queryKey: ['events'] 
+        queryKey: ['events'],
+        //To avoid failing request for the deleted event. 
+        refetchType: 'none' 
       });
       navigate('/events');
     }
