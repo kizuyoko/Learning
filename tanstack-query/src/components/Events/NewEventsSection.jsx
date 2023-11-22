@@ -5,6 +5,7 @@ import EventItem from './EventItem.jsx';
 import { fetchEvents } from '../../util/http.js'
 
 export default function NewEventsSection() {
+  // Tanstack setting 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['events'],
     queryFn: fetchEvents,

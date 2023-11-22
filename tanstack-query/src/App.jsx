@@ -37,6 +37,7 @@ const router = createBrowserRouter([
   },
 ]);
 
+// Boilerplate for Tanstack. You need to wrap QueryClientProvider with client prop, see below.
 const queryClient = new QueryClient();
 
 function App() {
