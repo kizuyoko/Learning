@@ -11,7 +11,8 @@ export async function fetchEvents({ signal, searchTerm, max }) {
   } else if (searchTerm) {
     url += '?search=' + searchTerm;
   } else if (max) {
-    //url += '&max=' + max; 
+    //Looks wrong but it is an adjustment because of the backend code
+    url += '?search' + '&max=' + max; 
   }
 
 
