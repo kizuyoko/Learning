@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import MeetupList from "../components/meetups/MeetupList"
 
 const DUMMY_MEETUPS = [
@@ -18,14 +17,19 @@ const DUMMY_MEETUPS = [
   }
 ]
 
-export default function HomePage() {
-  const [loadedMeetups, setLoadedMeetups] = useState([]);
-
-  useEffect(() => {
-    // Send http request
-    setLoadedMeetups(DUMMY_MEETUPS);
-  }, []);
+export default function HomePage(props) {
   return (
-    <MeetupList meetups={loadedMeetups} />
+    <MeetupList meetups={props.meetups} />
   );
-} 
+}
+
+// getStaticProps is a Next.js feature. If you export a function called getStaticProps (Static Site Generation) from a page, Next.js will pre-render this page at build time using the props returned by getStaticProps.
+
+export async function getStaticProps() {
+  // fetch data from API
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS
+    }
+  };
+}
