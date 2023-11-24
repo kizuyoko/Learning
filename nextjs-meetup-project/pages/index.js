@@ -23,8 +23,21 @@ export default function HomePage(props) {
   );
 }
 
-// getStaticProps is a Next.js feature. If you export a function called getStaticProps (Static Site Generation) from a page, Next.js will pre-render this page at build time using the props returned by getStaticProps.
+// A solution in server-side. Not reccomended if the content updates very often. Client side solution is below.
+// export async function getServerSideProps(context) {
+//   const req = context.req;
+//   const res = context.res;  
+  
+//   // fetch data from API
 
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS
+//     }
+//   };
+// }
+
+// getStaticProps is a Next.js feature. If you export a function called getStaticProps (Static Site Generation) from a page, Next.js will pre-render this page at build time using the props returned by getStaticProps. There is an another way to do above.
 export async function getStaticProps() {
   // fetch data from API
   return {
@@ -34,3 +47,5 @@ export async function getStaticProps() {
     revalidate: 10
   };
 }
+
+
