@@ -1,12 +1,22 @@
+import Head from 'next/head';
 import { MongoClient } from "mongodb";
 
 import MeetupList from "../components/meetups/MeetupList"
+import { Fragment } from 'react';
 
 export default function HomePage(props) {
   return (
-    <MeetupList meetups={props.meetups} />
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta name='description' content='Meetupas here and there in the world' />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </Fragment>
   );
 }
+
+
 
 // A solution in server-side. Not reccomended if the content updates very often. Client side solution is below.
 // export async function getServerSideProps(context) {
