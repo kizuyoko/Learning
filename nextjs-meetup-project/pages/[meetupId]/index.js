@@ -1,45 +1,60 @@
+import { MongoClient, ObjectId } from "mongodb";
 import MeetupDetail from "../../components/meetups/MeetupDetail";
 
-export default function MeetupDetails() {
+export default function MeetupDetails(props) {
   return (
     <MeetupDetail 
-      image='https://cdn-az.allevents.in/events5/banners/25c07fc896354de038d8168acad971c381788a29df07d9820ebb731677a9a216-rimg-w1200-h856-gmir.jpg?v=1699883486'
-      title='MeetupDetail'
-      address='hhhhh'
-      description='ddddd'
+      image={props.meetupData.image}
+      title={props.meetupData.title}
+      address={props.meetupData.address}
+      description={props.meetupData.description}
     />
   );
 }
 export async function getStaticPaths() {
+  // fetch data from API
+  const client = await MongoClient.connect('mongodb+srv://kizuyoko:packardbell1@cluster0.sgilcus.mongodb.net/meetups?retryWrites=true&w=majority'); 
+  
+  const db = client.db(); 
+    
+  const meetupsCollection = db.collection('meetups');
+
+  const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
+
+  client.close();
+
   return {
     fallback: false,
-    paths: [
-      { params: {
-        meetupId: 'm1',  
-      }},
-      { params: {
-        meetupId: 'm2',  
-      }},
-    ]
+    paths: meetups.map(meetup => ({ 
+      params: { meetupId: meetup._id.toString() },
+    })),
   }
 }
 
 export async function getStaticProps(context) {
-  // fetch data for a single meetup
-
   const meetupId = context.params.meetupId;
 
-  // This logs on the terminal, not on the browser.
-  console.log(meetupId);
+  // fetch data from API
+  const client = await MongoClient.connect('mongodb+srv://kizuyoko:packardbell1@cluster0.sgilcus.mongodb.net/meetups?retryWrites=true&w=majority'); 
+  
+  const db = client.db(); 
+    
+  const meetupsCollection = db.collection('meetups');
+
+  const selectedMeetup = await meetupsCollection.findOne({
+    _id: new ObjectId(meetupId),
+  });
+
+  client.close();
 
   return {
     props: {
       meetupData: {
-        image: 'https://cdn-az.allevents.in/events5/banners/25c07fc896354de038d8168acad971c381788a29df07d9820ebb731677a9a216-rimg-w1200-h856-gmir.jpg?v=1699883486',
-        id: 'm1',
-        title: 'MeetupData',
-        address: 'hhhhh',
-        description: 'ddddd',
+        id: selectedMeetup._id.toString(),
+        title: selectedMeetup.title,
+        address: selectedMeetup.address,
+        image: selectedMeetup.image,
+        description: selectedMeetup.description,
       }
     }
   }
