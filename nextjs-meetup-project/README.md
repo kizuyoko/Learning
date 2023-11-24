@@ -1,0 +1,2 @@
+- Failed (404) in Vercel as Learning. I need to make a new repostory.
+- Mongo DB should be updated the setting, not only my home PC.
