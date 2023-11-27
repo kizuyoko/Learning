@@ -9,3 +9,10 @@ Currently, two official plugins are available:
 
 # To start
 npm run dev
+
+# Animating React Apps
+Using Framer Motion To Bring Things To Life
+- **Just CSS** might be enough!
+- Building more **Complex Animations** with **Framer Motion**
+- Animation elements **In & Out**
+- **Scroll-based** animations 
