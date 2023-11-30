@@ -24,7 +24,7 @@ hobbies = ['Sports', 'Cooking'];
 
 let person: {
   name: string;
-  age: number:
+  age: number;
 
 };
 
