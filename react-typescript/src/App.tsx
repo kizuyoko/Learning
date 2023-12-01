@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   return (
-    <Todos />
+    <Todos items={['Learn React', 'Learn TypeScript']}/>
   );
 }
 
