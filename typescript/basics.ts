@@ -56,6 +56,17 @@ let course: string | number = 'React - The Complete Guide';
 // This does not work if you have already defineded course as only string.
 course = 123456;
 
-// oneName should be only a string OR an array of string.
+// oneName should be only a string OR an array of string. It calls union type.
 let oneName: string | string[];
+
+// Functions & types
+
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+// This won't return anything, because there is no statement.
+function print(value: any) {
+  console.log(value);
+}
 
