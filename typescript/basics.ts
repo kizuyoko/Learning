@@ -70,3 +70,16 @@ function print(value: any) {
   console.log(value);
 }
 
+// Generics
+
+function insertAtBegining<T>(array: T[], value: T) {
+  const newArray = [value, ...array];
+  return newArray;
+}
+
+const demoArray = [1, 2, 3];
+
+const updateArray = insertAtBegining(demoArray, -1); // [-1, 1, 2, 3]
+const stringArray = insertAtBegining(['a', 'b', 'c'], 'd');
+
+//updateArray[0].split('');
