@@ -49,9 +49,11 @@ let people: {
 // Type Inference
 // You can add :type like the commented code below, but not nessesary.
 // let course: string = 'React - The Complete Guide';
-let course = 'React - The Complete Guide';
+let course: string | number = 'React - The Complete Guide';
 
-// This does not work; you have already defineded course as a string.
-//course = 123456;
+// This does not work if you have already defineded course as only string.
+course = 123456;
 
+// oneName should be only a string OR an array of string.
+let oneName: string | string[];
 
