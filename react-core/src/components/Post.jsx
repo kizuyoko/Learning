@@ -1,7 +1,7 @@
 import classes from './Post.module.css';
 
 function Post(props) {
-  console.log(props);
+  // console.log(props);
   return(
     <li className={classes.post}>
       <p className={classes.author}>{props.author}</p>
