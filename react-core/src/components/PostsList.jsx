@@ -9,6 +9,7 @@ function PostsList({ isPosting, onStopPosting }) {
 
   const addPostHandler = (postData) => {
     setPosts((existingPosts) => [postData, ...existingPosts]);
+    //console.log(posts)
   };
 
   return(
@@ -21,9 +22,23 @@ function PostsList({ isPosting, onStopPosting }) {
           />
         </Modal>
       )}
-      <ul className={classes.posts}>
-        <Post author='Author 3' body='Body 3' />
-      </ul>
+      {posts.length > 0 && (
+        <ul className={classes.posts}>
+          {posts.map(post => 
+            <Post
+              key={post.id} 
+              author={post.author} 
+              body={post.body} 
+            />
+          )}
+        </ul>
+      )}
+      {posts.length === 0 && (
+        <div style={{ textAlign: 'center', color: 'white'}}>
+          <h2>There are no posts yet.</h2>
+          <p>Start adding some!</p>
+        </div>
+      )}
     </>  
   );
 }

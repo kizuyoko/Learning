@@ -17,8 +17,9 @@ function NewPost({ onCancel, onAddPost }) {
   const submitHandler = (event) => {
     event.preventDefault();
     const postData = {
+      id: 'id' + Math.floor(Math.random() * 100000),
       body: enteredBody,
-      author: enteredAuthor
+      author: enteredAuthor,
     };
     //console.log(postData);
     onAddPost(postData);
