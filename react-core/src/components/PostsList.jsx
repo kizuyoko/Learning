@@ -2,10 +2,26 @@ import classes from './PostsList.module.css';
 import NewPost from './NewPost';
 import Post from './Post';
 import Modal from './Modal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function PostsList({ isPosting, onStopPosting }) {
+  //Doable but not good because of infinitive loop. 
+  //Better to use 'useEffect' instead
+  // fetch('http://localhost:8080/posts')
+  //   .then(response => response.json())
+  //   .then(data => setPosts(data.posts));
+
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    async function fetchPosts() {
+      const response = await fetch('http://localhost:8080/posts');
+      const resData = await response.json();
+      setPosts(resData.posts);
+    }
+
+    fetchPosts();
+  }, []);
 
   const addPostHandler = (postData) => {
     fetch('http://localhost:8080/posts', {
