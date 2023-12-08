@@ -21,20 +21,20 @@ function PostsList() {
   //   fetchPosts();
   // }, []);
 
-  const addPostHandler = (postData) => {
+  //const addPostHandler = (postData) => {
     //setIsFetching(true);
-    fetch('http://localhost:8080/posts', {
-      method: 'POST',
-      body: JSON.stringify(postData),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+    // fetch('http://localhost:8080/posts', {
+    //   method: 'POST',
+    //   body: JSON.stringify(postData),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // });
 
-    setPosts((existingPosts) => [postData, ...existingPosts]);
+    // setPosts((existingPosts) => [postData, ...existingPosts]);
     //console.log(posts)
     //setIsFetching(false);
-  };
+  //};
 
   return(
     <>
