@@ -5,18 +5,19 @@ function Modal({ children }) {
   const navigate = useNavigate();
 
   function closeHandler() {
+    //Totaly OK to navigate '/'
     navigate('..');
   }
 
   return (
     <>
-      <div>
-        <div 
-          className={classes.backdrop}
-          onClick={closeHandler}
-        />
-        <dialog open className={classes.modal}>{children}</dialog>
-      </div>
+      <div 
+        className={classes.backdrop}
+        onClick={closeHandler}
+      />
+      <dialog open className={classes.modal}>
+        {children}
+      </dialog>
     </>
   );
 } 
