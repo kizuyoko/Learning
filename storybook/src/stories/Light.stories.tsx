@@ -3,8 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import Light from './Light';
 
 const meta: Meta<typeof Light> = {
+  title: 'Example/Light',
   component: Light,
-  title: 'Light',
+  
   
 }
 
