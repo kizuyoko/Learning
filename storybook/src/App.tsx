@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Button } from './stories/Button'
+import Light from './stories/Light'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,22 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <div
+        style={{
+          background: 'gray',
+          border: '1px solid black',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 10,
+          padding: 10,
+          width: 'max-content',
+          margin: '0 auto'
+        }}
+      >
+        <Light variant="red" />
+        <Light variant="yellow" />
+        <Light variant="green" />
+      </div>
       <div className="card">
         <Button 
           onClick={() => setCount((count) => count + 1)} 

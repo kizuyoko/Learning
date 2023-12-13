@@ -5,13 +5,21 @@ import Light from './Light';
 const meta: Meta<typeof Light> = {
   title: 'Example/Light',
   component: Light,
-  
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['green', 'yellow', 'red'],
+
+    }
+  }
   
 }
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/** The base color is green */
 export const Base: Story = {
   args: {
     variant: 'green'

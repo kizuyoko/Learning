@@ -2,6 +2,7 @@ type Props = {
   variant: 'green' | 'yellow' | 'red'
 };
 
+/** Traffic right */
 const Light = ({variant = 'green'}: Props) => {
   return (
     <div 
