@@ -1,7 +1,7 @@
 import Counter from './Counter'
 
 export default {
-    title: 'Example/Counter',
+    title: 'Components/Counter',
     component: Counter,
     argTypes: {
         color: { control:'color', presetsColors:['#000000', '#2B860B']}
