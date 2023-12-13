@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+// https://jedwatson.github.io/classnames/#:~:text=A%20simple%20javascript%20utility%20for%20conditionally%20joining%20classNames%20together.,be%20a%20string%20or%20object.
+
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import "./accordion.css";
 
