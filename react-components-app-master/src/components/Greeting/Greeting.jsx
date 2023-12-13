@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
+/** This is my original component. */
 export default function Greeting({ fontFamily }) {
   const [name, setName] = useState('');
 
@@ -9,7 +10,7 @@ export default function Greeting({ fontFamily }) {
   }
 
   return (
-    <div style={{ fontFamily }}>
+    <div style={fontFamily && { fontFamily }}>
       <h1>Hi{name && <span>, </span>}{name}!</h1>
       {!name && <p>Please fyll in your name below.</p>}
       {name && <p>Nice to meet you!</p>}
@@ -21,4 +22,8 @@ export default function Greeting({ fontFamily }) {
 
 Greeting.propTypes = {
   fontFamily: PropTypes.string,
+};
+
+Greeting.defaultProps = {
+  fontFamily: 'Arial'
 };
