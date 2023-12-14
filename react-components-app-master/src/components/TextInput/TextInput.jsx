@@ -1,6 +1,11 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 const TextInput = ({name, type, label, placeholder}) => {
+  const [value, setValue] = useState('');
+  const handlechange = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div>
@@ -9,6 +14,8 @@ const TextInput = ({name, type, label, placeholder}) => {
         type={type} 
         name={name} 
         placeholder= {placeholder} 
+        value={value}
+        onChange={handlechange}
       />
     </div>
   );
