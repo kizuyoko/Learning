@@ -1,7 +1,7 @@
 import Greeting from "./Greeting";
 
 export default {
-  title: 'Example/Greeting',
+  title: 'My Original/Greeting',
   component: Greeting,
   argTypes: {
       fontFamily: { 
