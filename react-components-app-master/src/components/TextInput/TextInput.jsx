@@ -11,7 +11,7 @@ const TextInput = ({name, type, label, placeholder}) => {
     <div className="mb-4">
       <label 
         htmlFor={name}
-        className="block"
+        className="block text-gray-700 text-sm font-bold mb-2" 
       >{label}</label>
       <input 
         type={type} 
@@ -19,6 +19,7 @@ const TextInput = ({name, type, label, placeholder}) => {
         placeholder= {placeholder} 
         value={value}
         onChange={handlechange}
+        className="shadow appearance-none border rounded py-2 px-3 w-full text-gray-700 leading-tight fpcus:outline-none focus:shadow-outline"
       />
     </div>
   );
