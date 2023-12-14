@@ -5,7 +5,7 @@ export default {
   component: TextInput,
   argTypes: {
     type: {
-      options: ['text', 'passowrd', 'email', 'date'],
+      options: ['text', 'password', 'email', 'date'],
       control: {type: 'select'}
     }
   }

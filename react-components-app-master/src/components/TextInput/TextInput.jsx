@@ -8,8 +8,11 @@ const TextInput = ({name, type, label, placeholder}) => {
   };
 
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div className="mb-4">
+      <label 
+        htmlFor={name}
+        className="block"
+      >{label}</label>
       <input 
         type={type} 
         name={name} 
