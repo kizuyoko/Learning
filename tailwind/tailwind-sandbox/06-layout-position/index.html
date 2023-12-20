@@ -7,30 +7,88 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>TailwindCSS</title>
   </head>
-  <body>
+  <body class="container mx-auto">
     <!-- Positioning -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Positioning</h1>
+    <div class="relative w-1/2 h-12 bg-red-200">
+      <p>Parent Element</p>
+      <div class="absolute bottom-0 right-0 bg-red-500">
+        <p>Absolute Child</p>
+      </div>
+    </div>
 
     <!-- Top left corner -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Top left corner</h1>
+    <div class="relative h-32 w-32 bg-yellow-100">
+      <div class="absolute left-0 top-0 h-16 w-16 bg-yellow-300"></div>
+    </div>
 
     <!-- Top right corner -->
-
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Top right corner</h1>
+    <div class="relative h-32 w-32 bg-yellow-100">
+      <div class="absolute right-0 top-0 h-16 w-16 bg-yellow-300"></div>
+    </div>
     <!-- Bottom left corner -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Bottom left corner</h1>
+    <div class="relative h-32 w-32 bg-yellow-100">
+      <div class="absolute left-0 bottom-0 h-16 w-16 bg-yellow-300"></div>
+    </div>
 
     <!-- Bottom right corner -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Bottom right corner</h1>
+    <div class="relative h-32 w-32 bg-yellow-100">
+      <div class="absolute right-0 bottom-0 h-16 w-16 bg-yellow-300"></div>
+    </div>
+
 
     <!-- Span top edge -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Span top edge</h1>
+    <div class="relative h-32 w-32 bg-yellow-100">
+      <div class="absolute inset-x-0 bottom-0 h-16 bg-yellow-300"></div>
+    </div>
 
     <!-- Span left edge -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Span left edge</h1>
+    <div class="relative h-32 w-32 bg-yellow-100">
+      <div class="absolute inset-y-0 left-0 w-16 bg-yellow-300"></div>
+    </div>
 
     <!-- Span right edge -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Span right edge</h1>
+    <div class="relative h-32 w-32 bg-yellow-100">
+      <div class="absolute inset-y-0 right-0 w-16 bg-yellow-300"></div>
+    </div>
 
     <!-- Span bottom edge -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Span bottom edge</h1>
+    <div class="relative h-32 w-32 bg-yellow-100">
+      <div class="absolute inset-x-0 bottom-0 h-16 bg-yellow-300"></div>
+    </div>
 
     <!-- Display Classes -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Display Classes</h1>
+    <div>
+      Lorem ipsum, <span class="inline bg-yellow-100">This is inline</span> dolor sit amet consectetur adipisicing elit. Dolores officia at rem eligendi provident error modi. <span class="inline-block bg-yellow-100">This is inline-block</span> Unde, voluptate rem. Labore nihil iusto perferendis praesentium pariatur nisi maxime, <span class="block  bg-yellow-100">This is block</span> iste <span class="hidden  bg-yellow-100">This is hidden</span>eaque!
+    </div>
 
     <!-- Z-Index -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Z-Index. From z-10 to z-50.</h1>
+    <div class="relative h-36">
+      <div class="absolute left-10 w-24 h-24 bg-blue-300 z-40">1</div>
+      <div class="absolute left-20 w-24 h-24 bg-blue-400">2</div>
+      <div class="absolute left-40 w-24 h-24 bg-blue-500 z-10">3</div>
+      <div class="absolute left-60 w-24 h-24 bg-blue-600 z-20">4</div>
+      <div class="absolute left-80 w-24 h-24 bg-blue-700 z-30">5</div>
+    </div>
 
     <!-- Floats -->
+    <h1 class="mt-4 pb-2 text-2xl font-semibold">Floats</h1>
+    <div class="w-1/2">
+      <img class="h-48 w-48 float-right" src="../assets/img/img1.jpg" alt="" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, velit ipsum corporis sint tenetur ut modi accusantium repellat nesciunt eveniet libero dolorum porro sed tempore animi blanditiis nemo neque et.
+      </p>
+    </div>
   </body>
 </html>
 
