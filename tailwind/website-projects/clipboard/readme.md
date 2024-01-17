@@ -22,7 +22,7 @@ Build or watch the CSS file:
 # Build once
 npm run build
 
-# Watch for changes
+# Watch for changes - YOU NEED TO OPEN LIVE PAGE MANUALLY!
 npm run watch
 ```
 
