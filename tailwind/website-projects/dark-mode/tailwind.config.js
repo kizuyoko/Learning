@@ -1,7 +1,7 @@
 module.exports = {
   content: ['./*.html'],
 
-  //When you activate this code and add a class 'dark' to body-tag, it shows dark mode with 'dark:className', no matter the browser's setting. 
+  //When you activate this code and add a class 'dark' to html-tag on index-html, it shows dark mode with 'dark:className', no matter the browser's setting. 
   darkMode: 'class',
   
   theme: {
