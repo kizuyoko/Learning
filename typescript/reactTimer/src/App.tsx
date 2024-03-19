@@ -1,17 +1,20 @@
-import { useRef } from "react";
+//import { useRef } from "react";
 import Button from "./components/Button";
 import Input from "./components/Input";
-import Container from "./components/Container";
+//import Container from "./components/Container";
+import Form from "./components/Form";
 
 function App() {
-  const input = useRef<HTMLInputElement>(null);
+  // const input = useRef<HTMLInputElement>(null);
   return (
     <main>
-      {/* <Input label="Your name?" id="name" type="text" disabled />
-      <Input label="Your age?" id="age" type="number" /> */}
-      <Input label='Test' id='test' ref={input} />
-      <Container as={Button}>Button</Container>
-      <Container as={Button} href='https://google.com'>A Link</Container>
+      <Form>
+        <Input type='text' label='Name' id='name' />
+        <Input type='number' label='Age' id='age' />
+        <p>
+          <Button>Save</Button>
+        </p>
+      </Form>
     </main>
   );
 }
