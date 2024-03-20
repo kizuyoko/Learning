@@ -6,6 +6,7 @@ import Form, { type FormHandle } from "./components/UI/Form";
 import AddTimer from "./components/AddTimer";
 import Header from "./components/Header";
 import Timers from "./components/Timers";
+import TimersContextProvider from "./store/timers-context";
 
 function App() {
   // const input = useRef<HTMLInputElement>(null);
@@ -19,7 +20,7 @@ function App() {
   }
 
   return (
-    <>
+    <TimersContextProvider>
       <Header />
       <main>
         {/* <Form onSave={handleSave} ref={customForm}>
@@ -32,7 +33,7 @@ function App() {
         <AddTimer />
         <Timers />
       </main>
-    </>
+    </TimersContextProvider>
   );
 }
 
