@@ -15,7 +15,7 @@ function App() {
 
   function handleSave(data: unknown) {
     const extractedData = data as { name: string; age: string };
-    console.log(extractedData);
+    //console.log(extractedData);
     customForm.current?.clear();
   }
 
