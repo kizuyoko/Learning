@@ -17,8 +17,8 @@ router.get('sunrise and sunset time', '/sunrise-and-sunset', async (ctx) => {
   }
 
   const result = await getSunriseAndSunset({
-    latitude: String(latitude),
-    longitude: String(longitude),
+    latitude: Number(latitude),
+    longitude: Number(longitude),
   });
 
   ctx.status = 200;

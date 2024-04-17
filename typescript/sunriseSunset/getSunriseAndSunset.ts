@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 
 type Options = {
-  latitude: string;
-  longitude: string;
+  latitude: number;
+  longitude: number;
 };
 
 type ApiResponseJSON = {
