@@ -7,7 +7,7 @@ const fs = require('fs');
 // Creates server instance
 const server = http.createServer((request, response) => {
   // Create a url object with request url and host name
-  const url = new URL(); 
+  const url = new URL(request.url, `http://${request.headers.host}`);
 
   // Switch statement based on pathname of url
   switch(url.pathname) {
@@ -17,7 +17,7 @@ const server = http.createServer((request, response) => {
       if (request.method === 'GET'){
 
         // Get value of 'name' query
-        const name = url.searchParams.get(name);
+        const name = url.searchParams.get('name');
         console.log(`User's name is: ${name}.`);
 
         // Write response header
@@ -34,11 +34,21 @@ const server = http.createServer((request, response) => {
         handlePostResponse(request, response);
         break; //The end of if-POST.    
       } 
-
+      break;
     default:
+      // Response header in case no file found.
+      response.writeHead(404, {
+        'Content-Type': 'text/html'
+      });
+
       break;
   } //The end of switch
 })
+
+// Have server listen at port 4001
+server.listen(4001, () => {
+  console.log(`Server is listening on: http://localhost:${server.address().port}`);
+});
 
 // Function for handling POST responses
 function handlePostResponse(request, response){
