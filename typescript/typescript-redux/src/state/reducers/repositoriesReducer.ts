@@ -5,8 +5,32 @@ interface RepositoriesState {
   error: string | null;
   data: string[];
 }
+interface Action {
+  type: string;
+  payload: any;
+}
 
-const reducer = (state: RepositoriesState, action: any) => {
+interface search_repositoriesAction {
+  type: 'search_repositories';
+}
+
+interface search_repositoriesSuccessAction {
+  type: 'search_repositories_success';
+  payload: string[];
+}
+
+interface search_repositoriesErrorAction {
+  type: 'search_repositories_error';
+  payload: string;
+}
+
+const reducer = (
+  state: RepositoriesState, 
+  action: 
+    | search_repositoriesAction 
+    | search_repositoriesSuccessAction 
+    | search_repositoriesErrorAction
+): RepositoriesState => {
   switch (action.type) {
     case 'search_repositories':
       return {
