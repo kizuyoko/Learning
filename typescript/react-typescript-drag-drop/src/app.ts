@@ -1,4 +1,4 @@
-// Project Type
+// Project Type - Since it is absolutely only Active or Finished, enum instead of type makes more sense.
 enum ProjectStatus { Active, Finished }
 
 class Project {
@@ -142,7 +142,13 @@ class ProjectList {
     this.element.id = `${this.type}-projects`;
 
     projectState.addLister((projects: Project[]) => {
-      this.assignedProjects = projects;
+      const relevantProjects = projects.filter(project => {
+        if (this.type === 'active') {
+          return project.status === ProjectStatus.Active;
+        }
+        return project.status === ProjectStatus.Finished;
+      });
+      this.assignedProjects = relevantProjects;
       this.renderProjects();
     }) ;
 
@@ -152,6 +158,7 @@ class ProjectList {
 
   private renderProjects() {
     const listEl = document.getElementById(`${this.type}-projects-list`)! as HTMLUListElement;
+    listEl.innerHTML = '';
     for (const projectIem of this.assignedProjects) {
       const listItem = document.createElement('li');
       listItem.textContent = projectIem.title;
