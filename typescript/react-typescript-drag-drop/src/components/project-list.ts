@@ -1,3 +1,5 @@
+/// <reference path="base-component.ts" />
+
 namespace App {
   //ProjectctList Class
   export class ProjectList extends Component<HTMLDivElement, HTMLElement> implements DragTarget {
