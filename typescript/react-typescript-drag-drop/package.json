@@ -8,7 +8,6 @@
     "start": "webpack-dev-server",
     "build": "webpack --config webpack.config.prod.js"
   },
-  "type": "module",
   "keywords": [
     "typescript",
     "course"
