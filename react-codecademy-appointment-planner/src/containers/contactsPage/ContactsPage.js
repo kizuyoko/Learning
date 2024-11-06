@@ -45,12 +45,12 @@ export const ContactsPage = (props) => {
         <h2>Add Contact</h2>
         <ContactForm 
           handleSubmit={handleSubmit} 
-          name={name} // Pass name state
-          setName={setName} // Pass setName function
-          phone={phone} // Pass phone state
-          setPhone={setPhone} // Pass setPhone function
-          email={email} // Pass email state
-          setEmail={setEmail} // Pass setEmail function
+          name={name}
+          setName={setName}
+          phone={phone}
+          setPhone={setPhone}
+          email={email}
+          setEmail={setEmail}
         /> 
       </section>
       <hr />
