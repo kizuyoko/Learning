@@ -31,6 +31,9 @@ export const ContactsPage = (props) => {
         phone: phone,
         email: email,
       });
+      setName('');
+      setPhone('');
+      setEmail('');
     }
   };
 

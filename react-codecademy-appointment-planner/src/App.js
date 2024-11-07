@@ -34,16 +34,15 @@ function App() {
     setContactsData([...contactsData, newContact]);
   }
 
-  function addNewAppointmentHandler(name, contact, date, time) {
-    console.log(`Now I am adding a contact data to ${contactsData}`);
+  function addNewAppointmentHandler(appointment) {
     const newAppointment = {
-      name: name,
-      contact: contact,
-      date: date,
-      time: time,
+      title: appointment.title,
+      contact: appointment.contact,
+      date: appointment.date,
+      time: appointment.time,
     }
+    console.log('new a-c: ' + newAppointment.contact);
     setAppointmentsData([...appointmentsData, newAppointment]);
-    console.log(`Updated contact data: ${appointmentsData}`);
   }
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -59,6 +58,7 @@ function App() {
         path={ROUTES.APPOINTMENTS} 
         element={ <AppointmentsPage 
           appointments={appointmentsData} 
+          contacts={contactsData}
           addAppointment={addNewAppointmentHandler}
         /> /* Add props to AppointmentsPage */ }/>
     </Route>
